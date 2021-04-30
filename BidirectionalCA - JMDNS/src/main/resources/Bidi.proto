@@ -1,0 +1,27 @@
+syntax = "proto3";// syntax
+
+option java_package = "BidirectionalCA";// the package
+option java_multiple_files = true;//default
+//option java_outer_classname = "BPABidirectionalImpl";// outer_class name
+
+
+service ReferenceLetter{// here is the name of the service
+
+// this is the third service of the project
+rpc GetReferenceLetter(stream ReferenceLetterRequest) returns (stream ReferenceLetterResponse){};
+// bidirectional evocation - stream server& stream client
+
+}// end of service ReferenceLetter
+
+message ReferenceLetterRequest{
+// client request
+ string course = 1;
+ string language = 2;
+ 
+}
+
+message ReferenceLetterResponse{
+// server response
+  string confirmation = 1;
+
+}
